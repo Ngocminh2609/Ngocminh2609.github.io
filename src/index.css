@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-stone-50);
+    color: var(--color-stone-800);
+    -webkit-font-smoothing: antialiased;
+  }
+  .dark body {
+    background-color: var(--color-stone-950);
+    color: var(--color-stone-200);
+  }
+  ::selection {
+    background-color: var(--color-emerald-200);
+    color: var(--color-emerald-950);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-emerald-500);
+    outline-offset: 2px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Steps light up one after another: 5 steps × 1.2s delay = one 6s cycle. */
+.pipeline-step {
+  animation: step-glow 6s ease-in-out infinite;
+}
+@keyframes step-glow {
+  0%,
+  22%,
+  100% {
+    border-color: var(--color-stone-200);
+    box-shadow: none;
+  }
+  6%,
+  16% {
+    border-color: var(--color-emerald-500);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-emerald-500) 25%, transparent);
+  }
+}
+.dark .pipeline-step {
+  animation-name: step-glow-dark;
+}
+@keyframes step-glow-dark {
+  0%,
+  22%,
+  100% {
+    border-color: var(--color-stone-700);
+    box-shadow: none;
+  }
+  6%,
+  16% {
+    border-color: var(--color-emerald-400);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-emerald-400) 30%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .pipeline-step {
+    animation: none;
+  }
+}

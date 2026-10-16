@@ -37,12 +37,18 @@ const PRESENT: Text = { en: 'Present', vi: 'Nay' }
 const since = (start: string): Text => ({ en: `${start} – ${PRESENT.en}`, vi: `${start} – ${PRESENT.vi}` })
 const range = (start: string, end: string): Text => ({ en: `${start} – ${end}`, vi: `${start} – ${end}` })
 
+const EMAIL = 'ngocminhlcyl@gmail.com'
+
 export const profile = {
   name: { en: 'Do Ngoc Minh', vi: 'Đỗ Ngọc Minh' } satisfies Text,
   role: { en: 'Full-stack Software Engineer', vi: 'Kỹ sư phần mềm Full-stack' } satisfies Text,
-  focus: 'Java · TypeScript · AI Code Review & Agentic Tooling',
+  focus: {
+    en: 'Java · TypeScript · AI Code Review & Agentic Tooling',
+    vi: 'Java · TypeScript · AI Code Review & công cụ agent',
+  } satisfies Text,
   location: { en: 'Hanoi, Vietnam', vi: 'Hà Nội, Việt Nam' } satisfies Text,
-  email: 'ngocminhlcyl@gmail.com',
+  email: EMAIL,
+  emailHref: `mailto:${EMAIL}`,
   avatar: '/avatar.jpg',
   cv: '/Do-Ngoc-Minh-CV.pdf',
   pageTitle: {

@@ -96,7 +96,7 @@ export function Header() {
           <span className="hidden sm:inline">{t(profile.name)}</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden lg:block">
+        <nav aria-label={t(ui.primaryNav)} className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {SECTIONS.map((id) => (
               <li key={id}>
@@ -125,7 +125,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Primary" className="border-t border-stone-200 px-4 pb-4 lg:hidden dark:border-stone-800">
+        <nav id="mobile-nav" aria-label={t(ui.primaryNav)} className="border-t border-stone-200 px-4 pb-4 lg:hidden dark:border-stone-800">
           <ul className="flex flex-col gap-1 pt-3">
             {SECTIONS.map((id) => (
               <li key={id}>

@@ -53,14 +53,14 @@ export function Contact() {
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-lg text-emerald-50">{t(ui.contactBody)}</p>
             <a
-              href={`mailto:${profile.email}`}
+              href={profile.emailHref}
               className="relative mt-6 inline-block text-xl font-semibold break-all text-white underline decoration-emerald-300 underline-offset-4 hover:decoration-white sm:text-2xl"
             >
               {profile.email}
             </a>
             <div className="relative mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href={`mailto:${profile.email}`}
+                href={profile.emailHref}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-emerald-800 shadow-sm transition hover:bg-emerald-50"
               >
                 <Icon name="mail" className="size-4" />
